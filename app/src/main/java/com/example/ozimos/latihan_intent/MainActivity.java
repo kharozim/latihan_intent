@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnPindahAvtivity;
+    private Button btnPindahWithDataActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,15 +17,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnPindahAvtivity = (Button) findViewById(R.id.btn_pindah_activity);
         btnPindahAvtivity.setOnClickListener(this);
+
+        btnPindahWithDataActivity = (Button) findViewById(R.id.btn_pindah_activity);
+        btnPindahWithDataActivity.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_pindah_activity:
-                Intent pindahIntent  = new Intent(MainActivity.this,PindahActivity.class);
+                Intent pindahIntent = new Intent(MainActivity.this, PindahActivity.class);
                 startActivity(pindahIntent);
+                break;
+            case R.id.btn_pindah_activity_data:
+                Intent pindahDataIntent = new Intent(MainActivity.this, PindahWithDataActivity.class);
+                pindahDataIntent.putExtra(PindahWithDataActivity.EXTRA_NAME,"DicodingAcademy.Boy");
+                pindahDataIntent.putExtra(PindahWithDataActivity.EXTRA_AGE, 5);
+                startActivity(pindahDataIntent);
                 break;
         }
     }
+
 }
