@@ -1,6 +1,7 @@
 package com.example.ozimos.latihan_intent;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnPindahAvtivity;
     private Button btnPindahWithDataActivity;
+    private Button btnDialPhone;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnPindahWithDataActivity = (Button) findViewById(R.id.btn_pindah_activity);
         btnPindahWithDataActivity.setOnClickListener(this);
+
+        btnDialPhone = (Button) findViewById(R.id.btn_dial_number);
+        btnDialPhone.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pindahDataIntent.putExtra(PindahWithDataActivity.EXTRA_NAME,"DicodingAcademy.Boy");
                 pindahDataIntent.putExtra(PindahWithDataActivity.EXTRA_AGE, 5);
                 startActivity(pindahDataIntent);
+                break;
+
+            case R.id.btn_dial_number:
+                String phoneNumber = "085211649526";
+                Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
+                startActivity(dialPhoneIntent);
                 break;
         }
     }
