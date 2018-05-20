@@ -14,10 +14,12 @@ public class PindahWithDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pindah_with_data);
+
         tvDataReceived = (TextView) findViewById(R.id.tv_data_received);
+
         String name = getIntent().getStringExtra(EXTRA_NAME);
         int age = getIntent().getIntExtra(EXTRA_AGE, 0);
-        String text = "Name : " + name + ", Your Age : " + age;
+        String text = "Name : " + name + "Your Age : " + age;
         tvDataReceived.setText(text);
     }
 }
